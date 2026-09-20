@@ -7,7 +7,9 @@
 **One System, Every Architecture: A Journey from Laptop to Planet-Scale**
 by **KC Ramo** · Technovize Publishing
 
-[**Get the book →**](https://djangozen.com/ebooks/book/the-ascent/)
+[**Ebook (PDF + EPUB) →**](https://djangozen.com/ebooks/book/the-ascent/)
+
+303 pages · 8.25 × 11 inch · ISBN 978-90-8378-212-6
 
 </div>
 
