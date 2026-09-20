@@ -15,103 +15,66 @@ by **KC Ramo** · Technovize Publishing
 
 ---
 
+This repository holds the complete, **MIT-licensed** companion code for *The Ascent*.
+It is the source for **Beacon**, the fictional collaborative knowledge platform the
+book follows from a single Django process on a laptop all the way to a planet-scale
+distributed system serving millions of users across six continents.
+
+<sub>The short address <code>technovize.com/code/ascent</code> printed in the book redirects here.</sub>
+
 ## About the book
 
-Every system that serves a billion requests began as a single process on a laptop.
+Every chapter opens with one scaling crisis, explains why it happened as a
+consequence of the previous chapter's success, and works through the fix with
+real code and real trade-offs. Unlike survey-style system-design books that jump
+between ten products, *The Ascent* tells a single continuous story: the code
+evolves, the architecture deepens, the patterns compound.
 
-*The Ascent* follows one application — **Beacon**, a collaborative knowledge platform — from a single Django process on a developer's machine all the way to a planetary-scale distributed system serving millions of users across six continents. Sixteen chapters, one continuous story: each chapter introduces a single scaling crisis, explains why it happened, and shows how to solve it, with real code and explicit trade-offs.
+## What's in this repository
 
-The monolith. The cache. The read replica. The shard. The service boundary. The message bus. Real-time collaboration. Search across a billion documents. Multi-region failover. And, at the end, the cost of all of it.
+The code is organized by chapter. Each chapter's directory contains Beacon as it
+stands at the **end** of that chapter, so you can read the book with the matching
+code open beside it, or diff one chapter against the next to see exactly what a
+scaling decision changed.
 
-This repository holds the code. The reasoning is in the book.
-
-**[Buy The Ascent →](https://djangozen.com/ebooks/book/the-ascent/)** · 331 pages · PDF + EPUB
-
----
-
-## What's in here
-
-Each directory is Beacon as it stood at the **end** of that chapter — a complete, runnable Django project, not a fragment.
-
-| Chapter | Directory | What it adds |
+| Part | Chapters | The climb |
 |---|---|---|
-| 1 | [`chapter-01`](chapter-01) | Django + SQLite — the MVP |
-| 2 | [`chapter-02`](chapter-02) | PostgreSQL, pgBouncer, profiling |
-| 3 | [`chapter-03`](chapter-03) | Redis, cache-aside, invalidation |
-| 4 | [`chapter-04`](chapter-04) | Celery, background tasks |
-| 5 | [`chapter-05`](chapter-05) | Read replicas, database routers |
-| 6 | [`chapter-06`](chapter-06) | Sharding: consistent hashing, etcd |
-| 7 | [`chapter-07`](chapter-07) | DRF, gRPC, Protobuf, Docker Compose |
-| 8 | [`chapter-08`](chapter-08) | Outbox pattern, Kafka, Debezium |
-| 9 | [`chapter-09`](chapter-09) | Django Channels, WebSockets, CRDT |
-| 10 | [`chapter-10`](chapter-10) | Inverted index, Elasticsearch |
-| 11 | [`chapter-11`](chapter-11) | Feed fan-out, Redis sorted sets, PyFlink |
-| 12 | [`chapter-12`](chapter-12) | ClickHouse, Iceberg, dbt, CDC |
-| 13 | [`chapter-13`](chapter-13) | Kubernetes, Istio, CockroachDB |
-| 14 | [`chapter-14`](chapter-14) | OpenTelemetry, Prometheus, Grafana |
-| 15 | [`chapter-15`](chapter-15) | Terraform, S3, CDN, cost model |
-| 16 | [`chapter-16`](chapter-16) | The final state |
+| I — The Monolith | 1–4 | One server, the first users, caching, the monolith under load |
+| II — Distribution Begins | 5–8 | Replicas, sharding, services, asynchronous work |
+| III — Real Time and Real Big | 9–12 | Collaboration, search, the feed, analytics |
+| IV — Planetary Scale | 13–16 | Multi-region, observability, cost, the principles that remain |
 
-### This is not a polished tutorial repo
+## Quick start
 
-It is the codebase *as it evolved* — warts, migrations and all.
-
-- **Regressions that get fixed later.** Chapter 4 has an N+1 query problem. Chapter 5 fixes it. That is deliberate: seeing the broken version is what makes the fix mean something.
-- **Migrations accumulate.** You can trace exactly when a table gained its index.
-- **Infrastructure grows.** One service in Chapter 1; a full topology by Chapter 13.
-
-Diffing two chapters against each other is as instructive as reading either one.
-
----
-
-## Running the code
-
-Every chapter is self-contained.
+Clone the repository linked from `technovize.com/code/ascent`, then, from the
+project root:
 
 ```bash
-git clone https://github.com/DjangoZenDev/beacon.git
-cd beacon/chapter-01
-python -m venv beacon_env
-source beacon_env/bin/activate      # Windows: beacon_env\Scripts\activate
+cd chapter-01
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
 
-Visit `http://localhost:8000`.
+Later chapters add services and infrastructure; each chapter's `README` lists
+what it needs and how to run it.
 
-From Chapter 7 onward Beacon is a multi-service system, so those chapters ship a `docker-compose.yml`:
+## A note on the code
 
-```bash
-cd beacon/chapter-13
-docker compose up -d
-```
-
-Chapter 13 brings up Django, PostgreSQL, Redis, Kafka, Elasticsearch, ClickHouse, etcd and the Istio control plane. Budget 6–8 GB of RAM.
-
-### Requirements
-
-| Component | Minimum | Needed from |
-|---|---|---|
-| Python | 3.12+ | Chapter 1 |
-| Docker | 24.0+ | Chapter 6 |
-| Docker Compose | v2.20+ | Chapter 7 |
-| kubectl | 1.28+ | Chapter 13 |
-| Terraform | 1.6+ | Chapter 15 |
-
-Chapters 1–5 need only Python and a local PostgreSQL.
-
----
+The listings are **illustrative** — they show the shape of each solution as the
+book teaches it, not a hardened, production-ready system. The commands run in
+order; they are not idempotent scripts. Read them alongside the chapter that
+introduces them.
 
 ## License
 
-See [LICENSE](LICENSE).
+MIT — free to use in your own projects, personal or commercial, without
+attribution. See [`LICENSE`](LICENSE).
+
+The **book text, figures, and cover** are © 2026 KC Ramo / Technovize Publishing
+and are not covered by this licence.
 
 ---
 
-<div align="center">
-
-**[The Ascent](https://djangozen.com/ebooks/book/the-ascent/)** — 331 pages on how systems actually grow.
-Published by [Technovize](https://technovize.com) · More books and tools at [djangozen.com](https://djangozen.com)
-
-</div>
+*Published by Technovize Publishing*
