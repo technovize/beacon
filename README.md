@@ -44,6 +44,32 @@ scaling decision changed.
 | III — Real Time and Real Big | 9–12 | Collaboration, search, the feed, analytics |
 | IV — Planetary Scale | 13–16 | Multi-region, observability, cost, the principles that remain |
 
+## Repository layout
+
+Each chapter directory holds Beacon as it stands at the **end** of that chapter,
+so you can read with the matching code open beside you — or diff one chapter
+against the next to see exactly what a scaling decision changed. 640 files across
+sixteen chapters; the count grows with the system.
+
+| # | Directory | Chapter | Files |
+|---|---|---|---|
+| 1 | [chapter-01](chapter-01/) | A Single Server and a Dream | 19 |
+| 2 | [chapter-02](chapter-02/) | The First Thousand Users | 20 |
+| 3 | [chapter-03](chapter-03/) | Caching Everything That Moves | 21 |
+| 4 | [chapter-04](chapter-04/) | The Monolith Groans | 26 |
+| 5 | [chapter-05](chapter-05/) | Read Replicas and the Split Brain | 28 |
+| 6 | [chapter-06](chapter-06/) | Sharding Beacon's Knowledge Graph | 33 |
+| 7 | [chapter-07](chapter-07/) | The Monolith Becomes a Service | 46 |
+| 8 | [chapter-08](chapter-08/) | Async Work and the Message Bus | 43 |
+| 9 | [chapter-09](chapter-09/) | Collaboration at the Speed of Light | 47 |
+| 10 | [chapter-10](chapter-10/) | Search Across a Billion Documents | 50 |
+| 11 | [chapter-11](chapter-11/) | The Feed That Never Sleeps | 42 |
+| 12 | [chapter-12](chapter-12/) | Data Lakes and the Analytical Sidecar | 46 |
+| 13 | [chapter-13](chapter-13/) | Going Multi-Region | 70 |
+| 14 | [chapter-14](chapter-14/) | Observability When Things Go Dark | 64 |
+| 15 | [chapter-15](chapter-15/) | The Cost of Scale | 44 |
+| 16 | [chapter-16](chapter-16/) | The Principles That Remain | 41 |
+
 ## Quick start
 
 Clone the repository linked from `technovize.com/code/ascent`, then, from the
