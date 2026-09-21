@@ -15,7 +15,7 @@ by **KC Ramo** · Technovize Publishing
 
 ---
 
-This repository holds the complete, **MIT-licensed** companion code for *The Ascent*.
+This repository holds the complete companion code for *The Ascent*.
 It is the source for **Beacon**, the fictional collaborative knowledge platform the
 book follows from a single Django process on a laptop all the way to a planet-scale
 distributed system serving millions of users across six continents.
@@ -67,13 +67,17 @@ book teaches it, not a hardened, production-ready system. The commands run in
 order; they are not idempotent scripts. Read them alongside the chapter that
 introduces them.
 
-## License
+## Licence
 
-MIT — free to use in your own projects, personal or commercial, without
-attribution. See [`LICENSE`](LICENSE).
+The **Companion Code License** — build with it, learn from it, use it in your own
+work; just don't republish the book or this code as your own.
+See [`LICENSE`](LICENSE).
+
+GitHub shows this as `NOASSERTION`, which is expected: it is a custom licence,
+not a missing one.
 
 The **book text, figures, and cover** are © 2026 KC Ramo / Technovize Publishing
-and are not covered by this licence.
+and are not covered by it.
 
 ---
 
